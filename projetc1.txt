@@ -1,25 +1,7 @@
-Hola este es my infor para mi proyecto de platzi    
+Borramos todo para probar
 
 
-Solicitud de Certificado de Depósito
-
-Nombre del Banco:
-Dirección del Banco:
-Ciudad, País
-Fecha: [Fecha de solicitud]
-
-Estimados señores,
-
-Por medio de la presente, me dirijo a ustedes para solicitar la emisión de un Certificado de Depósito conforme a los detalles proporcionados a continuación:
-
-Nombre del Titular: [Nombre del solicitante]
-Número de Identificación: [Número de identificación del solicitante]
-Monto del Depósito: [Cantidad a depositar]
-Plazo del Depósito: [Duración del depósito, en meses o años]
-Tipo de Moneda: [Moneda en la que se realizará el depósito]
-Adjunto a esta solicitud, he realizado el depósito correspondiente a la cantidad mencionada anteriormente en la cuenta bancaria especificada para este propósito.
-
-Agradezco su pronta atención a esta solicitud y quedo a la espera de recibir el Certificado de Depósito emitido.
+ezco su pronta atención a esta solicitud y quedo a la espera de recibir el Certificado de Depósito emitido.
 
 Quedo a su disposición para cualquier información adicional que puedan requerir.
 
