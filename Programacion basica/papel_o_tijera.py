@@ -1,33 +1,42 @@
-"""Crea un programa del calsico juego de piedra pepel o tijera"""
+import random
 
+"""Crea un programa del calsico juego de piedra pepel o tijera y agrega un contador de perdidas y ganancias"""
 
 stone:str = "piedra"
 paper:str = "papel"
 scissors:str = "tijera"
 
-player1:str = stone
-boot:str = paper
+
+win:int = 0 
+lost:int= 0
+
+while win<3 and lost<3 :
+
+    listvar =[stone, paper, scissors]
+    optiona_random = random.choice(listvar) 
+
+    player1 = stone
+    boot = optiona_random
 
 
-if player1 == boot:
-    print("error empates")
+    if player1 == boot:
+        print("Empate")
 
-if player1==stone and boot==scissors:
-    print( "Ganaste: piedra rompe tijera")
+    if player1==stone and boot==scissors:
+        win = win+1
+        print( "Ganaste")
+    elif player1==paper and boot == stone:
+        win = win+1
+        print("Ganaste")
+    elif player1==scissors and boot== paper:
+        win = win+1
+        print("Ganaste")
+    else: 
+        print("Perdiste")
+        lost = lost+1
 
-if player1==stone and boot==paper:
-    print("Perdiste: papel envuelve a piedra")
-
-
-if player1==paper and boot == scissors:
-    print("Perdiste: tijeras cortan papel")
-
-if player1==paper and boot == stone:
-    print("Ganaste: Piedra envuelve a papel")
-
-
-if player1==scissors and boot==paper:
-    print("Ganaste: Papel corta tijeras")
-
-if player1==scissors and boot == stone:
-    print("Perdiste: Piedra gana a tijera")
+print(f"ganaste {win} y perdiste {lost}")
+if win >=3:
+    print("tu ganas!!!") 
+else:
+    print("Tu pierdes!!!")
