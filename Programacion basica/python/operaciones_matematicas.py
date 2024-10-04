@@ -15,9 +15,9 @@ a += 2 #asignacion
 
 """ Cuando tenemos varias operaciones dentro de una misma linea devemos aplicar el metodo pendas
     el cual nos permite dar un orden a las operaciones matematicas PEMDAS
-    P potenciacion 
-    E exponeciacion
-    M matematica
+    P parentecis 
+    E exponentes
+    M multiplicacion
     D division 
     A adicion
     S sustraccion
