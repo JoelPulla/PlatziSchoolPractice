@@ -31,7 +31,8 @@ print (fun_sum(100,50))
 
 ################### Mejorare el codigo de platzi #############3###
 
-# Ejercicio: Crear un calculadora usando funciones y que sean de ocion multible para el susaurio 
+# Ejercicio: Crear un calculadora usando funciones y que sean
+#  de ocion multible para el susaurio 
 
 def suma(a,b):
     return a+b
