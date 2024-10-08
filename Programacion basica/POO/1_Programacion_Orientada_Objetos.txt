@@ -1,0 +1,44 @@
+            ###Programación Orientada a Objetos (POO) ###
+
+
+
+En programación existen varios paradigmas (estilos de programación). Normalmente,
+ comenzamos aprendiendo el paradigma secuencial o estructurado, donde el código 
+ se ejecuta de manera lineal, de arriba hacia abajo. Sin embargo, en proyectos más grandes, 
+ especialmente al interactuar con bases de datos, este enfoque puede volverse complicado, 
+ ya que tendríamos que escribir código para cada registro. Para evitar esto, surge la:
+ß
+Programación Orientada a Objetos (POO)
+
+Este enfoque nos permite dividir nuestro sistema en bloques de código llamados "objetos". 
+Por ejemplo, un objeto de la clase Persona puede ser "Joel", y este objeto tendrá métodos 
+o funciones que realicen procesos como "Registrar", "Salir", "Enviar SMS", etc.
+
+Componentes Clave de la POO
+Datos: Atributos (por ejemplo, nombre, edad, ubicación).
+Clase: Plantilla que define los atributos y métodos de un objeto.
+Objeto: Instancia de una clase que puede comunicarse con otros objetos.
+Métodos: Funciones que permiten realizar acciones (por ejemplo, salir, entrar, enviar SMS).
+Instancia: El proceso de crear datos a partir de una clase.
+Con este enfoque, podemos crear miles de objetos.
+
+Resumen de POO
+Objeto: Instancia creada de una clase (ejemplo: datos de una persona).
+Atributo: Información asociada al objeto.
+Método: Funciones que ejecutan acciones relacionadas con el objeto.
+Clase: Plantilla o modelo para crear objetos.
+Instancia: Proceso de creación de un objeto a partir de una clase.
+Conceptos Básicos de POO
+Abstracción: Proceso de identificar qué atributos y métodos tendrá un objeto.
+
+Encapsulamiento: Práctica de restringir el acceso a ciertos datos del objeto, protegiendo así la integridad del sistema.
+
+Polimorfismo: Capacidad de utilizar funciones de manera que puedan aplicarse a distintos tipos de objetos. Por ejemplo, 
+una función de "enviar notificación" puede aplicarse a diferentes métodos de comunicación (email, SMS, WhatsApp), permitiendo reutilizar la misma función.
+
+Herencia: Mecanismo que permite crear una nueva clase a partir de una clase existente, heredando sus atributos y métodos. 
+Esto permite la reutilización de código y la extensión de funcionalidad, creando nuevos objetos que incorporan características de otros.
+
+Conclusión
+La Programación Orientada a Objetos facilita la organización y gestión de proyectos complejos al permitir una estructura más modular 
+y reutilizable. Cada uno de estos conceptos fundamentales contribuye a hacer que el desarrollo de software sea más eficiente y mantenible.
