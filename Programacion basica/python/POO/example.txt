@@ -1,0 +1,25 @@
+Manejo de Archivos TXT en Python
+Abrir un Archivo: Para trabajar con un archivo de texto, primero debes abrirlo. Puedes hacerlo en diferentes modos:
+
+Leer: Para leer el contenido del archivo.
+Escribir: Para crear un nuevo archivo o sobrescribir uno existente.
+Añadir: Para agregar contenido al final de un archivo sin borrar el contenido existente.
+Leer el Archivo: Una vez abierto en modo de lectura, puedes obtener el contenido de varias maneras:
+
+Leer todo el contenido de una vez.
+Leer el archivo línea por línea.
+Leer todas las líneas y almacenarlas como una lista.
+Escribir en el Archivo: Al abrir un archivo en modo de escritura, puedes agregar o sobrescribir texto. Puedes escribir todo el contenido que desees, y si eliges el modo de añadir, el nuevo texto se agregará al final del archivo existente.
+
+Cerrar el Archivo: Es importante cerrar el archivo después de haber terminado de trabajar con él. Esto libera los recursos del sistema y asegura que todos los cambios se guarden correctamente.
+
+Uso de with: Para facilitar el manejo de archivos y asegurarte de que se cierren automáticamente, se recomienda usar la estructura with. Esto garantiza que el archivo se cerrará incluso si ocurre un error durante la operación.
+
+Resumen de Pasos
+Abre el archivo en el modo adecuado.
+Lee el contenido según lo necesites (todo, línea por línea, etc.).
+Escribe o añade texto al archivo si es necesario.
+Cierra el archivo para liberar recursos.
+Considera usar la estructura with para un manejo más seguro y fácil.
+
+ Escrtio por Chatgpt y promteado por Joel
