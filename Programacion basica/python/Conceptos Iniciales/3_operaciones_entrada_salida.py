@@ -7,3 +7,7 @@ print(f"un gusto conocerte {name}, wow ya tinees {age}")
 
 print(type(name))
 print(type(age))
+
+
+
+

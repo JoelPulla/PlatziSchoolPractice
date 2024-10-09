@@ -15,3 +15,6 @@ with open('Programacion basica/python/POO/products (1).csv', mode='a', newline='
     file.write('\n')
     csv_writr = csv.DictWriter(file,fieldnames= new_data.keys())
     csv_writr.writerow(new_data)
+    
+    
+    

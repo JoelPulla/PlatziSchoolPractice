@@ -1,0 +1,74 @@
+[
+    {
+        "name": "The Matrix",
+        "release_date": "1999-03-31",
+        "rental_price": 3.99,
+        "tax": 2.00,
+        "rental_duration_hours": 48,
+        "genre": "Science Fiction",
+        "available": true
+    },
+    {
+        "name": "Inception",
+        "release_date": "2010-07-16",
+        "rental_price": 4.50,
+        "tax": 2.00,
+        "rental_duration_hours": 72,
+        "genre": "Action",
+        "available": false
+    },
+    {
+        "name": "Interstellar",
+        "release_date": "2014-11-07",
+        "rental_price": 5.00,
+        "tax": 2.00,
+        "rental_duration_hours": 48,
+        "genre": "Adventure",
+        "available": true
+    },
+    {
+        "name": "Pulp Fiction",
+        "release_date": "1994-10-14",
+        "rental_price": 2.99,
+        "tax": 2.00,
+        "rental_duration_hours": 24,
+        "genre": "Crime",
+        "available": true
+    },
+    {
+        "name": "The Godfather",
+        "release_date": "1972-03-24",
+        "rental_price": 3.50,
+        "tax": 2.00,
+        "rental_duration_hours": 48,
+        "genre": "Drama",
+        "available": false
+    },
+    {
+        "name": "The Dark Knight",
+        "release_date": "2008-07-18",
+        "rental_price": 4.00,
+        "tax": 2.00,
+        "rental_duration_hours": 72,
+        "genre": "Action",
+        "available": true
+    },
+    {
+        "name": "Forrest Gump",
+        "release_date": "1994-07-06",
+        "rental_price": 3.25,
+        "tax": 2.00,
+        "rental_duration_hours": 24,
+        "genre": "Drama Comedy",
+        "available": true
+    },
+    {
+        "name": "The Lion King",
+        "release_date": "1994-06-15",
+        "rental_price": 3.00,
+        "tax": 2.00,
+        "rental_duration_hours": 48,
+        "genre": "Animation",
+        "available": false
+    }
+]

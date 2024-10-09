@@ -1,0 +1,11 @@
+name,release_date,rental_price,tax,rental_duration_hours,genre,available
+The Matrix,1999-03-31,3.99,2.0,48,Science Fiction,True
+Inception,2010-07-16,4.5,2.0,72,Action,False
+Interstellar,2014-11-07,5.0,2.0,48,Adventure,True
+Pulp Fiction,1994-10-14,2.99,2.0,24,Crime,True
+The Godfather,1972-03-24,3.5,2.0,48,Drama,False
+The Dark Knight,2008-07-18,4.0,2.0,72,Action,True
+Forrest Gump,1994-07-06,3.25,2.0,24,Drama Comedy,True
+The Lion King,1994-06-15,3.0,2.0,48,Animation,False
+
+
