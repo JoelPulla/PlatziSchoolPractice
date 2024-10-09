@@ -19,6 +19,5 @@ with open(path_json, mode='r') as file:
     
 movies.append(add_json) #agrega a la lista
 
-
 with open(path_json, 'w') as file:
     json.dump(movies, file, indent=4 ) #cobre escribre todo

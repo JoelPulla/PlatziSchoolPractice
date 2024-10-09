@@ -19,7 +19,6 @@ with open(json_path, 'r') as file:
     for content in movies:
         values_json = content.values()
         
-
 with open(json_csv, mode='w',newline='') as update_file:
         csv_writer = csv.DictWriter(update_file, fieldnames=keys_json)
         csv_writer.writeheader()
