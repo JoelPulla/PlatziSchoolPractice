@@ -19,13 +19,13 @@
 
 def sumvalues(x):
     return x * 2
+# este retorna 4
 
-
-
+            #decimos que recivimos una funcion como parametro
 def suma6(x, func):
-    total = x*1
+    total = x*1     #usamos el valor que retorna la funcion
     total = total + func(x)
     return total
-
+                    # declaramos la funcion que vamos usar
 sumtotal = suma6(2,func=sumvalues)
 print(sumtotal)

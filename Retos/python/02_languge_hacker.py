@@ -1,4 +1,4 @@
-ALPHABET = {
+alphabet = {
     "A": '4',
     "B": 'I3',
     "C": '[',
@@ -37,13 +37,18 @@ ALPHABET = {
     "0": 'o'
 }
 
-def leet_lang( text ):
-    text    = str( text )
-    output  = ""
 
-    for letter in text.upper():
-        output += ALPHABET.get( letter ) if ALPHABET.get( letter ) else letter
+def format_txt(txt):
+    caracteres = []  # Lista vacía para acumular caracteres
 
-    print( output )
+    for abc in txt.upper():
+        # Agregar el carácter modificado o el original a la lista
+        caracteres.append(alphabet.get(abc) if alphabet.get(abc) else abc)
 
-leet_lang( "puta" );
+    # Unir todos los caracteres en una sola cadena
+    txt_format = ''.join(caracteres)
+    print(txt_format)
+
+# Prueba
+format_txt("Hello word")
+
