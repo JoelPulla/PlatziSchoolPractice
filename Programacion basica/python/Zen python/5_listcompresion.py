@@ -1,3 +1,9 @@
+"""List compresion """
+
+#puede hacer que una lista optenga valores de un cliclo pero todo en una sola line
+# de codigo
+
+
 """
 list_v1 = []
 

@@ -1,6 +1,8 @@
 """Hof funciones dentro de funciones"""
 
 
+#### llamamos a una funcion dentro de otra funcion para acceder a su valor 
+
 # def increment(a):
 #     return a+1
 
