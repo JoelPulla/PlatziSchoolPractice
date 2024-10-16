@@ -16,3 +16,6 @@ if age < 18:
   raise Exception('No se permiten menores de edad')
 
 print('Hola 2')
+
+# ==========> Manera Eficientoe <=============
+# No rompe el sistena
