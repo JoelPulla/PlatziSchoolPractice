@@ -1,0 +1,12 @@
+
+
+### requirements ### 
+Es un archivo que almacena todas las dependencias que neces
+itamos en formato string 
+
+### generar  ###
+# pip3 freeze > requirements.txt
+
+### isntalar a partir de un archivo 
+#pip3 install -r requirements.txt 
+

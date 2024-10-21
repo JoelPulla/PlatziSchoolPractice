@@ -1,0 +1,32 @@
+
+
+# Para manejarnos al instalar paquetes y evitar
+# da;ar el resto de nuestros proyectos por 
+# las diferencias de versiones debemos usar
+# un entorno virtual
+
+
+####### MAC ######
+1. crear el entorno vitual en la raiz del proyecto 
+"python3 -m venv nombre_del_enrtorno "
+
+2. Inicializar 
+"source nombre_del_entorno bin/activate"
+
+####### WINDOWS ##### 
+1. crear el entorno vitual en la raiz del proyecto 
+"python3 -m venv nombre_del_enrtorno "
+
+2. Inicializar
+
+.\nombre_del_entorno\Scripts\Activate
+
+
+
+##### ambos entornos ####
+
+3. para desacticar el entorno virtual 
+"deacctivate"
+
+4. saber los paquetes instalados
+"pip3 freeze"

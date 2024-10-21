@@ -1,0 +1,16 @@
+version: '3'
+services:
+  # Nombre del servicio
+  app-proyect:
+    build:
+      context: .
+      dockerfile: Dockerfile
+
+      ## poara fastapi
+    volumes:
+      - .:/app
+
+    ports:
+    - '80:80'
+
+
