@@ -1,7 +1,7 @@
 # ### Pandas ### 
 
 # """ Esto solo es el codigo para la funcionalida debo
-#     instalar las demas depedencias
+#     instalar las demas de
 # """
 # # import utils
 # # import read_csv

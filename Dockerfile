@@ -20,4 +20,4 @@ CMD bash -c "while true; do sleep 1; done"
 
 #PARA SERVER CON FASTAPI
 
-CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--reload", "--port", "8080"]
+# CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--reload", "--port", "8080"]
