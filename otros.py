@@ -1,17 +1,8 @@
-def is_leap(year):
-    leap = False
-    
-    # Write your logic here
-    if year % 400 == 0:
-        leap = True
-    elif year % 100 == 0:
-        leap =  False
-    elif year % 4 == 0:
-        leap = True
-    else:
-        leap = False
-        
-    return leap
+n = int(input("define n:"))
+# y = int(input("define y:"))
+# z = int(input("define y"))
+# n = int(input("define n"))
 
-year = int(input())
-print(is_leap(year))
+
+a = [n for n in range(n) if n<=n]
+print(a)

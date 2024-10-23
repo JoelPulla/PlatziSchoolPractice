@@ -1,20 +1,23 @@
 FROM python:3.13
 
-#directorio de trabajo 
+# Directorio de trabajo
 WORKDIR /app
 
-#copia el archivo de las deprendicas 
-    #local              #docker 
+# Copia el archivo de dependencias
+#      Local               Docker
 COPY requirements.txt /app/requirements.txt
 
-#ejecuta el comando 
-    #instala las dependicas de los requerimentos de docker
+# Ejecuta el comando para instalar dependencias del archivo de requerimientos
 RUN pip install --no-cache-dir --upgrade -r /app/requirements.txt
 
-#copiamos todo el proyecto desde el archivo raiz
-COPY ./ app/
-        #pegar en directorio de trabajo de docker
+# Copia todo el proyecto desde el archivo raíz
+# Pegar en el directorio de trabajo en Docker
+COPY . /app/
 
-#comando para mantener encendico el contenedor
-CMD bash -c "while true; do sleep 1; done "
+# Comando para mantener el contenedor en ejecución
+CMD bash -c "while true; do sleep 1; done"
 
+
+#PARA SERVER CON FASTAPI
+
+CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--reload", "--port", "8080"]

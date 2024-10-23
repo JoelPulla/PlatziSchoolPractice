@@ -1,2 +1,12 @@
 ### Nos sirve para encapsular proyectos a otros proyectos ###
 
+1. primero debemos crear nuestro docker file 
+el cual contendra la configuracion predeterminada
+
+    1.1 revisa el docker file con las lineas de codigo 
+
+2. Crear el la imegan con docker compose 
+    este archivo declara como y donde se inicializa el contenedor 
+    2.1 crea docker-compose.yml
+    2.2 
+
