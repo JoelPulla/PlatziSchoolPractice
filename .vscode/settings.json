@@ -1,3 +1,5 @@
 {
-    "commentTranslate.targetLanguage": "am"
+    "commentTranslate.targetLanguage": "am",
+    "commentTranslate.source": "Google",
+    "commentTranslate.multiLineMerge": true
 }
