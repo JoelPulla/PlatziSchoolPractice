@@ -173,3 +173,36 @@ class Book(models.Model):
         return self.title
 
 ```
+
+# Manager 
+
+- Se usa dentro de las shell
+
+    `Author.objects.count()` saber cuantas registros hay 
+    `Author.objects.first()` Trae el primer reghistro 
+    `Author.objects.last()`  Ultimo registro enviado a la BDD
+    `Author??` me muestra las propiedades de la clase 
+    `Author.objects.all()` me trae todos los registros 
+    `Author.objects.filter(name = "JoelDev")` filtra datos con asignacion no comparacion 
+    `Author.objects.filter(name = "JoelDev").delete()` Elimina el dato que encontro con el filtro 
+    `Author.objects.order_by("name")` Ordena por el objeto que le enviamos en orden alfabetico ß
+
+
+# Gestion de Urls 
+
+- Para mejorar la gestion es poner cada url aislada por aplicacion es un archiuvo urls.py
+es como nuestro archivo de barril de DART
+
+- lo llamamos desde el urls del proyecto principal 
+- si deseamos agregar un parametro para neustra fuinciones debe ser los siguiente 
+```
+from django.contrib import admin
+from django.urls import path, include
+
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('carros/', include('app_cars.urls'))
+    path('carros/detalle/<int:id>/', include('app_cars.urls'))
+]
+
+```
