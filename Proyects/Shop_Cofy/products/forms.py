@@ -10,6 +10,7 @@ class ProductForm(forms.Form):
     url_image = forms.URLField(label="Url de la imgen", required=False, )
     avilable =  forms.BooleanField(initial=True, label="Disponible")
     photo = forms.ImageField(required=False, label="Foto")
+    date_create = forms.DateTimeField(required=False,label="Fecha de creaccion ")
     
     #you save in BDD
     def save(self):
@@ -20,5 +21,6 @@ class ProductForm(forms.Form):
             url_image = self.cleaned_data["url_image"],
             avilable =  self.cleaned_data["avilable"],
             photo = self.cleaned_data["photo"],
+            date_create = self.changed_data["date_create"]
         
         )

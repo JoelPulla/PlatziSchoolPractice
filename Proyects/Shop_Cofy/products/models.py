@@ -15,6 +15,7 @@ class Product(models.Model):  # nombre para el cliente final
     photo = models.ImageField(
         upload_to="logos", null=True, blank=True, verbose_name="Logo del Producto"
     )
+    date_create = models.DateTimeField(null=True,verbose_name='Fecha de creacion', auto_now_add=True)
 
     def __str__(self):
         return self.name 

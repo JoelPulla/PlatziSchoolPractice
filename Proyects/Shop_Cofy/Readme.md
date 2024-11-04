@@ -42,3 +42,46 @@ Este es un proyecto funcional de una tienda de cafes, creado para practicar mis 
 ## Librerias de terceros  
 > ### Pillow 
 > Se encarga de realizar validaciones de las imagenes que se suben a la BDD
+
+## Django Admin 
+
+Django admin nos permite ver e interactuar con nuestros modelos y los datos guardados en la BDD
+para utilizarlo primero debemos crear los usarios por medio de la terminal 
+1. crea el susper usuario 
+`python manage.py createsuperuser`
+username = JoelPulla
+useremail= joel.pulla@example.com
+password= admin
+
+2. levanta el servidor y accede con tu ip del server a la direcion admin `127.0.0.1/admin`
+
+3. para poder interacturar con nustros modelos debemos agrear la clase a nuestro admin a nivel app 
+
+
+## Imagenes en Django 
+
+Segun  nuestro modelos como emos escrito el nombre de donde se gardaran la imagenes se creara una carpeta con ese nombre y agregra las images, en mi caso mi modelo esta:
+`
+photo = models.ImageField( upload_to="logos", null=True, blank=True, verbose_name="Logo del Producto" ) 
+`
+por lo que se creo una carpeta con el nombre `logos`
+
+>[!Nota!]
+> Para poder accerder a la imagenes en el front debes agregar en los urls a nivel del proyecto 
+
+`
+from django.contrib import admin
+from django.urls import path, include
+
+# libreria para las imagenes 
+from django.conf.urls.static import static
+from django.conf import settings
+
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('product/', include('products.urls'))
+    # urls de las imagenes 
+] + static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
+
+
+`
