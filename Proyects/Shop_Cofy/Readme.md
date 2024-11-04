@@ -31,6 +31,8 @@ Este es un proyecto funcional de una tienda de cafes, creado para practicar mis 
 8. Crea los fomrularios en un archivo forms.py en la aplicacion
 
 - Debes crear la funcion con el metodod objets.create(aqui debes pasar la data)
+
+9. Front debes crear un carptea con los templeatres que susaras
 ## Librerias Nativas Django 
 
 9. crea las vistas 
@@ -85,3 +87,20 @@ urlpatterns = [
 
 
 `
+
+## App user de Djanmgo 
+
+1. crea la app de users
+`python manage.py startapp users`
+
+2. instala la app a nivel del proyecto 
+3. crea las urls para la locacion 
+4. crea los templetaes que usaras para tu proyecto 
+5. para estilizar el formulario de login puedes utlizar este recurso
+>[!Aporte]
+> https://github.com/django-crispy-forms/crispy-tailwind
+> nos permite darle fomra a los imputs
+
+6. una vez allas istalado todo lo necesario agrega los metodos al formulario 
+7. aregra un redirect a nivel de proyecto en settings para cuando ingrese saber a donde te enviara
+
