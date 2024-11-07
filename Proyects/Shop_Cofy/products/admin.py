@@ -1,7 +1,7 @@
 from django.contrib import admin
 from .models import Product
 
-
+#nos permite visulizar esto en el django admin 
 #hereda los atributos de la clase padre
 class ProductAdmin(admin.ModelAdmin):
     model = Product

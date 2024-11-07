@@ -71,11 +71,12 @@ por lo que se creo una carpeta con el nombre `logos`
 >[!Nota!]
 > Para poder accerder a la imagenes en el front debes agregar en los urls a nivel del proyecto 
 
-`
+```
 from django.contrib import admin
 from django.urls import path, include
 
 # libreria para las imagenes 
+
 from django.conf.urls.static import static
 from django.conf import settings
 
@@ -86,7 +87,7 @@ urlpatterns = [
 ] + static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
 
 
-`
+```
 
 ## App user de Djanmgo 
 
@@ -104,3 +105,46 @@ urlpatterns = [
 6. una vez allas istalado todo lo necesario agrega los metodos al formulario 
 7. aregra un redirect a nivel de proyecto en settings para cuando ingrese saber a donde te enviara
 
+
+## InLine Djando
+
+Este no permite acceder a los atributos de otra clase 
+
+```
+from django.contrib import admin
+from orders.models import Order, OrderProduct
+
+# Register your models here.
+
+#inlines
+class OrderProductInLineAdmin(admin.TabularInline):
+    model= OrderProduct
+    extra = 0
+
+
+class OrderAdmin(admin.ModelAdmin):
+    model = Order
+    inlines = [
+        OrderProductInLineAdmin
+    ]
+admin.site.register(Order, OrderAdmin)
+```
+
+
+## Djnado Eviron
+
+Esta libreria nos permitre manejar las variables de entorno de nuestro proyecto 
+- para ello utilizamos la libreria environ
+`pip install django-environ`
+
+ejemplo: 
+
+```
+env = environ.venv 
+environ.Env.read_env(os.path.join(BASE_DIR, ".venv"))
+```
+depues debes crear el proyecto .env al nivel del proyecto 
+
+```
+DJANGO_DB_PASSWORD = 'admin'
+```

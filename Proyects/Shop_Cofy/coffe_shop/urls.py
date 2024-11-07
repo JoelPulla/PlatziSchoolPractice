@@ -12,7 +12,8 @@ from django.conf import settings
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('product/', include('products.urls')),
-    path('users/', include('users.urls'))  
+    path('users/', include('users.urls')),
+    path('ordes/', include('orders.urls') )
     
     # urls de las imagenes 
 ] + static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
