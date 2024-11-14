@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1> Create Project</h1> 
+
+
+
+
+<form action="" >
+    {% csrf_token %}
+    {{form}}
+    <button type="submit">Guardar</button>
+</form>
+
+{% endblock content %}
+

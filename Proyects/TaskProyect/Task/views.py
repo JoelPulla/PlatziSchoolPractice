@@ -1,21 +1,51 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404, redirect
 from django.http import HttpResponse, JsonResponse
-from django.shortcuts import get_object_or_404
+
 
 from .models import Project, Task
+from .forms import CreateProjectFrom, CreateTaskForm
 
 
 # Create your views here.
-def Index(request):
-    return HttpResponse("Index Page")
-
-def PrintData(request, data):
-    return HttpResponse(f"Mira el dato que me pasaste es #####{data}####")
+def index(request):
+    return render(request, "index.html")
 
 def projects(request):
     projects = list(Project.objects.values())
-    return JsonResponse(projects, safe=False)
+    return render(request,"projects.html" , {
+        'projects': projects
+    })
 
-def tasks(request, id):
-    task = get_object_or_404(Task, id=id)
-    return HttpResponse('task: %s' % task.title)
+def tasks(request,):
+    task = Task.objects.all()
+    return render(request, "tasks.html", {
+        "tasks": task
+    })
+    
+def create_Porject(request):
+    return render(request, 'create_project.html', {
+        'form': CreateProjectFrom
+    })
+
+def create_Task(request):
+    
+    if request.method == 'GET':
+        return render(request, 'create_task.html', { 'form':CreateTaskForm })
+    else:
+        Task.objects.create(title = request.POST['title'], description= request.POST['description'], project_id = 2)
+        return redirect('taks/')
+
+def create_task_by_proyect(request, id):
+    id_project = Project.objects.get(id=id)
+    if request.method == 'GET':
+        return render(request, 'create_task_by_project.html')
+    else:
+        Task.objects.create(title = request.POST['title'], description= request.POST['description'], project_id = id_project)
+        return redirect('projects')
+
+    
+    
+    
+#este es un jemplo de recibir datos desde el front 
+def printData(request, data):
+    return HttpResponse(f"Mira el dato que me pasaste es #####{data}####")
