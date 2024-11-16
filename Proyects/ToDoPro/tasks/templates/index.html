@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Manager</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-white text-gray-800">
+
+    <!-- Header -->
+    <header class="border-b border-gray-200">
+        <div class="container mx-auto flex justify-between items-center py-4 px-6">
+            <div class="text-2xl font-bold">
+                <a href="#" class="text-gray-800 hover:text-blue-500">TaskManager</a>
+            </div>
+
+            
+
+            {% if user.is_authenticated %}
+            <nav class="flex items-center space-x-4">
+                <a href="{% url "home_tasks" %}" class="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600">Ingresa a la Plataforma</a>
+            </nav>
+            {% else %}
+            <nav class="flex items-center space-x-4">
+                <a href="{% url "login" %}" class="text-gray-800 hover:text-blue-500">Login</a>
+                <a href="{% url "signup" %}" class="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600">Signup</a>
+            </nav>
+            {% endif %}
+            
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="container mx-auto text-center py-16 px-6">
+        <h1 class="text-4xl font-extrabold mb-4">Organiza tus tareas con TaskManager</h1>
+        <p class="text-lg text-gray-600 mb-6">
+            Una herramienta simple y poderosa para administrar tus pendientes y alcanzar tus metas.
+        </p>
+        <div>
+            <a href="#" class="bg-blue-500 text-white px-6 py-3 rounded-lg text-lg hover:bg-blue-600">
+                Comienza Ahora
+            </a>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 py-12 px-6">
+        <div class="text-center p-6 border rounded-lg shadow-sm">
+            <h3 class="text-xl font-semibold mb-2">Planificación Fácil</h3>
+            <p class="text-gray-600">Crea, organiza y prioriza tus tareas en segundos.</p>
+        </div>
+        <div class="text-center p-6 border rounded-lg shadow-sm">
+            <h3 class="text-xl font-semibold mb-2">Seguimiento en Tiempo Real</h3>
+            <p class="text-gray-600">Sigue tu progreso con un panel intuitivo y actualizado.</p>
+        </div>
+        <div class="text-center p-6 border rounded-lg shadow-sm">
+            <h3 class="text-xl font-semibold mb-2">Colaboración</h3>
+            <p class="text-gray-600">Comparte tareas con tu equipo y trabajen juntos sin complicaciones.</p>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="bg-gray-100 py-12">
+        <div class="container mx-auto text-center px-6">
+            <h2 class="text-3xl font-bold mb-4">¿Listo para comenzar?</h2>
+            <p class="text-gray-600 mb-6">Regístrate gratis y transforma tu forma de trabajar.</p>
+            <a href="{% url "login" %}" class="bg-blue-500 text-white px-6 py-3 rounded-lg text-lg hover:bg-blue-600">
+                Regístrate Gratis
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="border-t border-gray-200 py-6">
+        <div class="container mx-auto text-center text-gray-600">
+            © 2024 TaskManager. Todos los derechos reservados.
+        </div>
+    </footer>
+
+</body>
+</html>
