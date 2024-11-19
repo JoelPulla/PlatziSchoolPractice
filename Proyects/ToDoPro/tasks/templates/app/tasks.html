@@ -1,11 +1,65 @@
 {% extends "base.html" %}
 
 {% block content %}
+ <!-- Main Content -->
+ <main class="container mx-auto py-10 px-6">
+    <!-- Welcome Section -->
+    <section class="mb-12">
+        <h2 class="text-4xl font-extrabold text-black mb-2">
+            <span class="text-neutral-dark">¡Bienvenido, </span>
+            <span class="text-secondary">name usaer</span>
+        </h2>
+        <p class="text-neutral-dark text-lg">Administra tus proyectos y tareas fácilmente desde aquí.</p>
+        
+    </section>
 
-<!-- Contenido -->
-<main class="container mx-auto py-10 px-6">
-    <h1 class="text-3xl font-bold mb-4">Bienvenido a tu tablero</h1>
-    <p class="text-gray-600">Aquí puedes administrar tus tareas de forma eficiente.</p>
-</main>
+
+<div class="mt-6 grid grid-cols-1 md:grid-cols-3 gap-6">
+    <!-- Resumen Cards -->
+    <div class="bg-white shadow-lg rounded-lg p-6 text-center">
+        <h3 class="text-lg font-bold text-black">Proyectos Totales</h3>
+        <p class="text-4xl font-extrabold text-primary mt-2">{{total_projects}}</p>
+    </div>
+    <div class="bg-white shadow-lg rounded-lg p-6 text-center">
+        <h3 class="text-lg font-bold text-black">Tareas Pendientes</h3>
+        <p class="text-4xl font-extrabold text-secondary mt-2">{{dont_done_taks}}</p>
+    </div>
+    <div class="bg-white shadow-lg rounded-lg p-6 text-center">
+        <h3 class="text-lg font-bold text-black">Tareas Completadas</h3>
+        <p class="text-4xl font-extrabold text-green-600 mt-2">{{done_task}}</p>
+    </div>
+</div>
+
+<!-- Projects Section -->
+<section class="mb-12">
+    <br>
+    <div class="flex items-center justify-between mb-6">
+        <h2 class="text-3xl font-extrabold text-black">Tus Proyectos</h2>
+        <!-- Botón Crear Nuevo Proyecto -->
+        <a href="{% url "create_project" %}" class="bg-primary text-white hover:bg-primary-dark py-2 px-4 rounded-lg shadow flex items-center">
+            <!-- Icono -->
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="mr-2" viewBox="0 0 16 16">
+                <path d="M11 13a5 5 0 1 0-4.975-5.5H4A1.5 1.5 0 0 0 2.5 6h-1A1.5 1.5 0 0 0 0 7.5v1A1.5 1.5 0 0 0 1.5 10h1A1.5 1.5 0 0 0 4 8.5h2.025A5 5 0 0 0 11 13m.5-7.5v2h2a.5.5 0 0 1 0 1h-2v2a.5.5 0 0 1-1 0v-2h-2a.5.5 0 0 1 0-1h2v-2a.5.5 0 0 1 1 0"/>
+            </svg>
+            <span>Nuevo Proyecto</span>
+        </a>
+    </div>
+    
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {% for project in all_projects %}
+        
+        <!-- Project Card -->
+        <div class="bg-white shadow-lg rounded-lg p-6">
+            <h3 class="text-xl font-bold text-black">{{project.name}}</h3>
+            <p class="text-neutral mt-2">Estado: <span class="text-primary font-medium">{{project.get_status_display}}</span></p>
+            <p class="text-neutral mt-2">Fecha Inicio: <span class="font-medium">{{project.start_date}} - {{project.end_date}}</span></p>
+            <a href="#" class="mt-4 inline-block bg-primary text-white py-2 px-4 rounded-lg shadow hover:bg-primary-dark hover:shadow-lg transition-all duration-300 ease-in-out">
+                Ver Detalles
+            </a>
+        </div>
+        
+        {% endfor %}
+    </div>
+</section>
 
 {% endblock content %}

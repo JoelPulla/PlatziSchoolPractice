@@ -132,7 +132,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
 # routes fuc login 
-LOGIN_REDIRECT_URL = "home_tasks"
+LOGIN_REDIRECT_URL = "home_projects"
 LOGOUT_REDIRECT_URL = 'index'
 LOGIN_URL = 'login'
 

@@ -1,3 +1,28 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="max-w-4xl mx-auto bg-white shadow-lg rounded-lg p-8 mt-8">
+    <h2 class="text-3xl font-extrabold text-black mb-6">Crear Nuevo Proyecto</h2>
+    <form method="POST" action="{% url "create_project" %}">
+
+        {% csrf_token %} 
+        {% load crispy_forms_tags %}
+        {{ form|crispy }}
+        
+        <!-- Botones -->
+        <div class="flex justify-end space-x-4">
+            <a href="{% url "home_projects" %}" class="bg-gray-200 text-gray-700 py-2 px-4 rounded-lg hover:bg-gray-300">
+                Cancelar
+            </a>
+            <button type="submit" class="bg-primary text-white py-2 px-4 rounded-lg hover:bg-primary-dark shadow" >
+                Guardar Proyecto
+            </button>
+        </div>
+    </form>
+</div>
+{% endblock content %}
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -37,27 +62,9 @@
     </script>
 </head>
 <body class="bg-neutral-light min-h-screen">
-    
-    <!-- Header -->
-    <header class="bg-gradient-to-r from-primary to-primary-dark text-white shadow-lg">
-        <div class="container mx-auto flex justify-between items-center px-6 py-4">
-            <div class="flex items-center space-x-4">
-                <!-- Logo -->
-                <div class="bg-white p-2 rounded-full">
-                    <span class="text-primary font-extrabold text-xl">SP</span>
-                </div>
-                <h1 class="text-2xl font-bold">Sistema de Proyectos</h1>
-            </div>
-            <div class="flex items-center space-x-6">
-                <a href="#" class="text-white hover:text-primary-light font-medium">Perfil</a>
-                <a href="{% url "close_session" %}" class="bg-secondary hover:bg-secondary-dark text-white py-2 px-4 rounded-lg font-bold shadow-md transition duration-200">Cerrar Sesión</a>
-            </div>
-        </div>
-    </header>
-    {% block content %}
 
-    {% endblock content %}
+    
         
-    </main>
+    
 </body>
 </html>
