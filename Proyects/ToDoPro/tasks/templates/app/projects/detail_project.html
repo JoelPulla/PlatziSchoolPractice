@@ -1,1 +1,143 @@
-A qui editaras el proyecto ademas pordras crear tareas para el mismo 
+{% extends "base.html" %} {% block content %}
+
+<main class="container mx-auto py-10 px-6">
+    <section class="bg-white shadow-lg rounded-lg p-6">
+        <!-- Título y Estado -->
+        <div class="flex justify-between items-center">
+            <div class="flex items-center space-x-4">
+                <span
+                    class="px-3 py-1 rounded-full font-semibold text-sm text-white {% if project.status == 'pl' %} bg-gray-500 {% elif project.status == 'ed' %} bg-blue-500 {% elif project.status == 'pa' %} bg-yellow-500 {% elif project.status == 'fi' %} bg-green-500 {% elif project.status == 'ca' %} bg-red-500 {% endif %}">
+                    {{ project.get_status_display }}
+                </span>
+
+                <!-- Título -->
+                <h1 id="project-name" class="font-bold text-2xl text-black">
+                    {{project.name}}
+                </h1>
+            </div>
+            <!-- Botones de Acción -->
+            <div class="flex space-x-2">
+                <!-- Botón Editar -->
+                <form method="post" action= "{% url "edit_project" project.id %}">
+                    {% csrf_token %}
+                    <button type="submit"
+                    class="bg-blue-500 hover:bg-blue-600 text-white py-2 px-3 rounded-lg font-bold shadow-md transition duration-200">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                        class="bi bi-pencil-fill" viewBox="0 0 16 16">
+                        <path
+                            d="M12.854.146a.5.5 0 0 1 .11.638l-.057.07L6.964 6.707l-.001 2.327-2.326-.002L.707 9.793l-.354-.354L6.293.854a.5.5 0 0 1 .638-.11l.07.057L12.854.146zm-6.072 8.536 2.327.001.001-2.326-2.328.001-.001 2.326zm6.874-6.874L6.964 6.707l.707.708L14.22 3.12a.5.5 0 0 1 .638-.11l.07.057.57.57-.57.57-.57-.57-2.52 2.52a.5.5 0 0 1-.708-.707l2.52-2.52-.707-.708z" />
+                    </svg>
+                </button>
+
+
+                </form>
+
+
+                
+                <!-- Botón Eliminar -->
+                <a href="{% url "delete_project" project.id %}" class="bg-red-500 hover:bg-red-600 text-white py-2 px-3 rounded-lg font-bold shadow-md transition duration-200 flex items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash3-fill" viewBox="0 0 16 16">
+                        <pathd="M11 1.5v1h3.5a.5.5 0 0 1 0 1h-.538l-.853 10.66A2 2 0 0 1 11.115 16h-6.23a2 2 0 0 1-1.994-1.84L2.038 3.5H1.5a.5.5 0 0 1 0-1H5v-1A1.5.5 0 0 1 6.5 0h3A1.5.5 0 0 1 11 1.5m-5 0v1h4v-1a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5M4.5 5.029l.5 8.5a.5.5 0 1 0 .998-.06l-.5-8.5a.5.5 0 1 0-.998.06m6.53-.528a.5.5 0 0 0-.528.47l-.5 8.5a.5.5 0 0 0 .998.058l.5-8.5a.5.5 0 0 0-.47-.528M8 4.5a.5.5 0 0 0-.5.5v8.5a.5.5 0 0 0 1 0V5a.5.5 0 0 0-.5-.5" />
+                    </svg>
+                </a>
+
+            </div>
+        </div>
+
+        <!-- Fechas -->
+        <div class="flex space-x-2 mt-4">
+            <div class="flex-1">
+                <p class="text-xs text-gray-600">Fecha Inicio:</p>
+                <p class="text-sm text-gray-800">{{project.start_date}}</p>
+            </div>
+            <div class="flex-1">
+                <p class="text-xs text-gray-600">Fecha Fin:</p>
+                <p class="text-sm text-gray-800">{{project.end_date}}</p>
+            </div>
+        </div>
+
+        <!-- Descripción -->
+        <div class="mt-6 w-1/2">
+            <h2 class="text-sm font-medium text-gray-700 mb-2">Descripción:</h2>
+            <p class="text-sm text-gray-800 bg-gray-100 p-4 rounded-lg shadow-inner">
+                {{project.description}}
+            </p>
+        </div>
+
+        <!-- Fecha de Creación -->
+        <p id="created-at" class="text-sm text-gray-500 text-right mt-6">
+            {{project.created_at}}
+        </p>
+    </section>
+    <br />
+
+    <section>
+        <div class="flex justify-between items-center mb-4">
+            <h2 class="text-2xl font-bold text-black">Tareas del Proyecto</h2>
+            <!-- Botón Agregar Tarea -->
+            <a href="{% url 'create_taks' project.id %}"
+                class="bg-green-500 hover:bg-green-600 text-white py-2 px-4 rounded-lg font-bold shadow-md transition duration-200 flex items-center space-x-2">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                    class="bi bi-plus-circle-fill" viewBox="0 0 16 16">
+                    <path
+                        d="M16 8a8 8 0 1 1-16 0 8 8 0 0 1 16 0zM8 4a.5.5 0 0 0-.5.5v3H5a.5.5 0 0 0 0 1h2.5v3a.5.5 0 0 0 1 0v-3H11a.5.5 0 0 0 0-1H8.5v-3A.5.5 0 0 0 8 4z" />
+                </svg>
+                <span>Agregar Tarea</span>
+            </a>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- Iteración sobre Tareas -->
+            {% for task in tasks %}
+            <div class="bg-white shadow-md rounded-lg p-4 flex flex-col justify-between">
+                <!-- Información de la Tarea -->
+                <div>
+                    <!-- Título y Estado -->
+                    <div class="flex justify-between items-center mb-2">
+                        <span
+                            class="px-1 py-1 rounded-full text-xs font-semibold text-white {% if task.done %} bg-green-500 {% else %} bg-yellow-500 {% endif %}">
+                            {% if task.done %} Completa {% else %} Pendiente {% endif %}
+                        </span>
+                        <h3 class="text-lg font-bold text-black">{{ task.title }}</h3>
+                    </div>
+                    <!-- Descripción -->
+                    <p class="text-gray-600 text-sm mb-2">
+                        <strong>Descripción:</strong> {{ task.description }}
+                    </p>
+                    <!-- Fecha Límite -->
+                    <p class="text-gray-500 text-sm">
+                        <strong>Fecha límite:</strong>
+                        <span class="font-medium">{{ task.limit_date }}</span>
+                    </p>
+                    <!-- Usuario Asignado -->
+                    <p class="text-gray-500 text-sm mt-2">
+                        <strong>Asignado a:</strong>
+                        <span class="font-medium">{{ task.user.username }}</span>
+                    </p>
+                </div>
+
+                <!-- Botones de Acción -->
+                <div class="flex justify-between items-center mt-4">
+                    <button
+                        class="bg-blue-500 hover:bg-blue-600 text-white py-1 px-4 rounded-lg font-bold shadow-md transition duration-200">
+                        Marcar como completa
+                    </button>
+                    <button type="button"
+                        class="bg-red-500 hover:bg-red-600 text-white py-2 px-3 rounded-lg font-bold shadow-md transition duration-200">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                            class="bi bi-trash3-fill" viewBox="0 0 16 16">
+                            <path
+                                d="M11 1.5v1h3.5a.5.5 0 0 1 0 1h-.538l-.853 10.66A2 2 0 0 1 11.115 16h-6.23a2 2 0 0 1-1.994-1.84L2.038 3.5H1.5a.5.5 0 0 1 0-1H5v-1A1.5.5 0 0 1 6.5 0h3A1.5.5 0 0 1 11 1.5m-5 0v1h4v-1a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5M4.5 5.029l.5 8.5a.5.5 0 1 0 .998-.06l-.5-8.5a.5.5 0 1 0-.998.06m6.53-.528a.5.5 0 0 0-.528.47l-.5 8.5a.5.5 0 0 0 .998.058l.5-8.5a.5.5 0 0 0-.47-.528M8 4.5a.5.5 0 0 0-.5.5v8.5a.5.5 0 0 0 1 0V5a.5.5 0 0 0-.5-.5" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            {% empty %}
+            <!-- Si no hay tareas -->
+            <p class="text-gray-500 italic text-center">
+                No hay tareas asignadas a este proyecto.
+            </p>
+            {% endfor %}
+        </div>
+    </section>
+</main>
+{% endblock content %}
