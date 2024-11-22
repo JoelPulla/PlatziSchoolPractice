@@ -2,9 +2,11 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.views import generic
 from django.urls import reverse_lazy
 from django.http import HttpResponse
+from django.contrib.auth.models import User
 
 from .models import Project, Task
 from .forms import ProjectForm, TaskForm
+
 
 
 # Create your views here.
@@ -16,7 +18,11 @@ def home(request):
     )
 
 def homeProjects(request):
-    return render(request, 'app/tasks.html')
+    user = request.user
+    user = user.username.title()
+    return render(request, 'app/projects.html',{
+        'user' : user
+    })
 
 def projects(request):
     
@@ -28,7 +34,7 @@ def projects(request):
     
     all_projects = list(Project.objects.all())
     total_projects = len(all_projects)
-    return render(request, 'app/tasks.html', {
+    return render(request, 'app/projects.html', {
         'all_projects' : all_projects,
         'total_projects': total_projects,
         'taks': all_taks,
@@ -46,8 +52,7 @@ class ProjectFormView(generic.FormView):
     #llama a la formulador y accede al meotodo para envair los datos a la BDD
     def form_valid(self, form) :
         form.save()
-        return super().form_valid(form)
-    
+        return super().form_valid(form)    
     
 def taks_by_project(id):
     taks = list(Task.objects.filter(project_id = id))
@@ -77,19 +82,17 @@ def edit_project(request, project_id):
             'form': form,
             })
         
-    # else:
-    #     try:
-    #         form = ProjectForm(request.POST, instance=project)
-    #         form.save()
-    #         return redirect('detail_project', project_id )
-    #     except ValueError as error:
-    #         return render(request,"app/projects/edit.html", {
-    #         'form': form,
-    #         'error': f"Error al actualizar la tarea por : {error}"
-    #         }) 
-        
-
-        
+    else:
+        try:
+            form = ProjectForm(request.POST, instance=project)
+            form.save()
+            return redirect('detail_project', project_id )
+        except ValueError as error:
+            return render(request,"app/projects/edit.html", {
+            'form': form,
+            'error': f"Error al actualizar la tarea por : {error}"
+            }) 
+              
 def create_task(request, project_id):
     if request.method == 'GET':
         return render(request,"app/tasks/create_task.html" , {
@@ -102,4 +105,18 @@ def create_task(request, project_id):
         new_task.save()
         return redirect('detail_project', project_id)
     
+def done_task(request, task_id, project_id ):
+    task = get_object_or_404(Task, pk=task_id)
+    if request.method == 'POST':
+        task.done = True
+        task.save()
+        return redirect('detail_project', project_id)
     
+def delete_task(request, task_id, project_id):
+    task = get_object_or_404(Task, pk = task_id)
+    
+    if request.method == 'POST':
+        task.delete()
+        return redirect('detail_project', project_id)
+    
+
