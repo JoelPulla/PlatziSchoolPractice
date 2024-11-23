@@ -1,11 +1,23 @@
-aqui va el form 
+{% extends "base_header.html" %}
 
+{% block content %}
+<div class="max-w-3xl mx-auto bg-white p-8 rounded-lg shadow-lg">
+    <h2 class="text-3xl font-bold text-primary-dark mb-6">Editar Tarea</h2>
+    <form action="" method="POST" class="space-y-6">
+        {% csrf_token %}
+        {% load crispy_forms_tags %}
+        
+        <!-- Renderizado de los campos con crispy_forms -->
+        <div class="space-y-4">
+            {{ form|crispy }}
+        </div>
 
-<form action="" method="POST">
-    {% csrf_token %}
-    {{form.as_p}}
-
-    <button type="submit">
-        Actualizar
-    </button>
-</form>
+        <!-- Botón de actualización -->
+        <div class="text-right mt-6">
+            <button type="submit" class="bg-primary text-white font-bold py-3 px-6 rounded-lg shadow-md hover:bg-primary-dark transition">
+                Actualizar
+            </button>
+        </div>
+    </form>
+</div>
+{% endblock content %}

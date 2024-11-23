@@ -3,7 +3,7 @@ from django.views import generic
 from django.urls import reverse_lazy
 from django.http import HttpResponse
 from django.contrib.auth.models import User
-
+from django.contrib.auth.decorators import login_required
 from .models import Project, Task
 from .forms import ProjectForm, TaskForm
 
@@ -17,13 +17,15 @@ def home(request):
         "index.html",
     )
 
+@login_required
 def homeProjects(request):
     user = request.user
     user = user.username.title()
-    return render(request, 'app/projects.html',{
+    return render(request, 'app/projects/projects.html',{
         'user' : user
     })
 
+@login_required
 def projects(request):
     
     all_taks = list(Task.objects.all())
@@ -34,7 +36,7 @@ def projects(request):
     
     all_projects = list(Project.objects.all())
     total_projects = len(all_projects)
-    return render(request, 'app/projects.html', {
+    return render(request, 'app/projects/projects.html', {
         'all_projects' : all_projects,
         'total_projects': total_projects,
         'taks': all_taks,
@@ -42,9 +44,10 @@ def projects(request):
         'done_task': done_task,
         'dont_done_taks': dont_done_taks
     })    
-    
+
+
 class ProjectFormView(generic.FormView):
-    template_name = "app/form_projects.html"
+    template_name = "app/projects/form_projects.html"
     form_class = ProjectForm
     success_url = reverse_lazy('home_projects')
 
@@ -57,7 +60,8 @@ class ProjectFormView(generic.FormView):
 def taks_by_project(id):
     taks = list(Task.objects.filter(project_id = id))
     return taks
-    
+ 
+@login_required    
 def detail_project(request, project_id):
     
     project =  get_object_or_404(Project, id = project_id)
@@ -67,12 +71,14 @@ def detail_project(request, project_id):
         'project': project,
         'tasks': taks
     } )
-        
+
+@login_required        
 def delete_project(request, project_id):
     project = get_object_or_404(Project, pk = project_id)
     project.delete()
     return redirect('home_projects')
 
+@login_required
 def edit_project(request, project_id):
     project = get_object_or_404(Project, pk=project_id)
     
@@ -92,7 +98,8 @@ def edit_project(request, project_id):
             'form': form,
             'error': f"Error al actualizar la tarea por : {error}"
             }) 
-              
+ 
+@login_required             
 def create_task(request, project_id):
     if request.method == 'GET':
         return render(request,"app/tasks/create_task.html" , {
@@ -104,14 +111,16 @@ def create_task(request, project_id):
         new_task.project_id = project_id
         new_task.save()
         return redirect('detail_project', project_id)
-    
+ 
+@login_required   
 def done_task(request, task_id, project_id ):
     task = get_object_or_404(Task, pk=task_id)
     if request.method == 'POST':
         task.done = True
         task.save()
         return redirect('detail_project', project_id)
-    
+
+@login_required 
 def delete_task(request, task_id, project_id):
     task = get_object_or_404(Task, pk = task_id)
     
